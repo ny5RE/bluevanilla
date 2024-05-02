@@ -1,7 +1,7 @@
 [BlueVanilla][1]
 ================
 
-[![build-image](https://github.com/aguslr/bluevanilla/actions/workflows/build.yml/badge.svg)](https://github.com/aguslr/bluevanilla/actions/workflows/build.yml)
+[![build-image](https://github.com/ny5re/bluevanilla/actions/workflows/build.yml/badge.svg)](https://github.com/ny5re/bluevanilla/actions/workflows/build.yml)
 
 A Fedora Silverblue image that uses vanilla GNOME and FlatHub apps.
 
@@ -16,11 +16,11 @@ Usage
 
 1. Rebase to an unsigned image to get proper signing keys:
 
-       rpm-ostree rebase ostree-unverified-registry:ghcr.io/aguslr/bluevanilla:latest && systemctl reboot
+       rpm-ostree rebase ostree-unverified-registry:ghcr.io/ny5re/bluevanilla:latest && systemctl reboot
 
 2. Rebase to a signed image to finish the installation:
 
-       rpm-ostree rebase ostree-image-signed:docker://ghcr.io/aguslr/bluevanilla:latest && systemctl reboot
+       rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ny5re/bluevanilla:latest && systemctl reboot
 
 Alternatively, an [ISO file for offline installation][7] can be generated with
 the following command:
@@ -29,7 +29,7 @@ the following command:
         --volume .:/build-container-installer/build \
         --security-opt label=disable --pull=newer \
         ghcr.io/jasonn3/build-container-installer:latest \
-        IMAGE_REPO="ghcr.io/aguslr" \
+        IMAGE_REPO="ghcr.io/ny5re" \
         IMAGE_NAME="bluevanilla" \
         IMAGE_TAG="latest" \
         VARIANT="Silverblue"
