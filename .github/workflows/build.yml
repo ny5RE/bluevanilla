@@ -136,7 +136,23 @@ jobs:
             latest=false
           tags: |
             type=raw,value=latest
+            
+ #########################################################################################################     
+      # Workaround bug where capital letters in your GitHub username make it impossible to push to GHCR.
+      # https://github.com/macbre/push-to-ghcr/issues/12
+      - name: Lowercase Registry
+        id: registry_case
+        uses: ASzc/change-string-case-action@v6
+        with:
+          string: ${{ env.REGISTRY_URL }}/${{ env.REGISTRY_USERNAME }}
 
+      - name: Lowercase Image
+        id: image_case
+        uses: ASzc/change-string-case-action@v6
+        with:
+          string: ${{ env.IMAGE_NAME }}
+##########################################################################################################
+      
       - name: Build Image
         id: build_image
         uses: redhat-actions/buildah-build@v2
